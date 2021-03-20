@@ -1,0 +1,47 @@
+{% extends 'base.html' %} {% block title %} Employee Information{% endblock title %}{%block si%}active{%endblock si%} {% block body %}
+
+
+<div class="container">
+
+    <div class="container py-5 md-5 ">
+
+        <h3 class="text-center alert alert-info mb-5">Employee Info List</h3>
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Password</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            {% for semph in semp %}
+            <tbody>
+                <td>{{semph.name}}</td>
+                <td>{{semph.email}}</td>
+                <td>{{semph.password}}</td>
+                <td>
+
+                    <button class="btn"><i class="fa fa-trash"></i></button>
+                    <a href="{%url 'update' semph.id%}" class="btn btn-success btn-sm">Edit</a>
+                    <form action="{%url 'delete' semph.id%}" method="post" class="d-inline">
+
+                        {% csrf_token %}
+                        <input type="submit" class="btn btn-danger btn-sm" value="Delete">
+                    </form>
+
+                </td>
+
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+
+</div>
+</div>
+
+
+{%endblock body%}

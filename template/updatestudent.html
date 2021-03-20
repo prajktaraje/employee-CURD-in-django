@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block title %} {% endblock title %} {% block body %}
+<div class="row">
+
+    <div class="col-sm-8 offset-2 mt-5">
+        <h4 class="alert alert-info">update Student Information</h4>
+        <form method="POST">
+            {%csrf_token%} {{form.as_p}}
+            <input type="submit" class="btn btn-success" value="Update">
+            <a href="{%url 'showinfo'%}" class='btn btn-success'>Show Data</a>
+        </form>
+    </div>
+</div>
+
+{%endblock body%}

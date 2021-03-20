@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block title %} Home{% endblock title %} {%block home%}active{%endblock home%}{% block body %}
+
+
+<div class="row mx-5 mt-5">
+    <div class="container">
+        <h3 class="text-center alert alert-info">Add Employee</h3>
+
+
+        <form action="" method="POST">
+            {%csrf_token%} {{form.as_p}}
+            <input type="submit" class="btn btn-success" value='Add'>
+        </form>
+    </div>
+
+
+</div>
+
+{%endblock body%}
